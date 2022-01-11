@@ -1,0 +1,5 @@
+- docker swarm init
+docker swarm init --advertise-addr 192.168.56.10
+
+-- join to docker swarm
+docker swarm join --token SWMTKN-1-5uet3pwk5dc02lag01m6alcrsk4qre6odspmyvans1mbbveu3v-76pehdtqiiv7cvf2d3lu97bbr 192.168.56.10:2377
