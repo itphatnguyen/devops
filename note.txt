@@ -1,8 +1,28 @@
-- docker swarm init
+## docker swarm init
 docker swarm init --advertise-addr 192.168.56.10
 
--- join to docker swarm
+## join to docker swarm
 docker swarm join --token SWMTKN-1-5uet3pwk5dc02lag01m6alcrsk4qre6odspmyvans1mbbveu3v-76pehdtqiiv7cvf2d3lu97bbr 192.168.56.10:2377
+
+## Docker swarm create service 
+docker service create --replicas 6 -p 8085:8085 --name testservice phatnt1710/swarmtest:dotnet
+
+--replicas: số lượng container sẻ tao ra trong swarm
+--name testservice: testservice là name của service dc tạo ở swarm master
+--phatnt1710/swarmtest:dotnet : image để tạo ra container lấy từ docker hub
+
+## View container dang run trên nhung node nào
+docker service ps testservice
+
+## update các image của container từ dotnet sang node
+docker service update --image=phatnt1710/swarmtest:node testservice
+
+
+
+## Xem status ram cpu của container
+docker stats
+
+
 
 -- build app to image 
 -t : name of docker img

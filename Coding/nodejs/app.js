@@ -3,8 +3,7 @@ var sleep = require("system-sleep");
 var os = require("os");
 
 http
-  .createServer((req, res) => {
-    sleep(1);
+  .createServer((req, res) => {    
     res.writeHead(200, { "Content-Type": "text/plain" });
     res.end("Swarm service (Node app), hostname: " + os.hostname);
   })
