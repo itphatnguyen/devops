@@ -22,6 +22,8 @@ docker service update --image=phatnt1710/swarmtest:node testservice
 ## Xem status ram cpu của container
 docker stats
 
+## run bất kì ip nào vs port 8085
+http://0.0.0.0:8085
 
 
 -- build app to image 
