@@ -25,6 +25,9 @@ docker stats
 ## run bất kì ip nào vs port 8085
 http://0.0.0.0:8085
 
+## xem tất cả thư mục vs option
+ls -la
+
 
 -- build app to image 
 -t : name of docker img
@@ -35,3 +38,10 @@ swarmtest: image name
 .: context
 
 docker build -t phatnt1710/swarmtest:node -f Dockerfile . 
+
+-- run app with port 
+docker run -p 8080:80 -d phatnt1710/platformservice:memory
+8080: la port cua may local hien tai
+80: port cua container 
+tuc la  mo port 80 ra port 8080 may host
+
