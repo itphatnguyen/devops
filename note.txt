@@ -45,3 +45,36 @@ docker run -p 8080:80 -d phatnt1710/platformservice:memory
 80: port cua container 
 tuc la  mo port 80 ra port 8080 may host
 
+------- K8S -------
+
+--- tong quan cac cap trong K8S
+
+ cluster --> node ---> pod  ---> container
+
+to chuc tu deployment xuong pod xong den cac image container 
+
+
+
+-- tao deployment
+kubectl apply -f platforms-depl.yaml
+
+apply : tao deployment
+-f platforms-depl.yaml : tao tu file yaml
+
+-- xem cac deployment
+kubectl get deployments
+
+## API GETWAY
+
+-- tạo ingress-nginix 
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.3/deploy/static/provider/cloud/deploy.yaml
+
+-- Get namespace 
+kubectl get namespaces
+
+-- Get những pods su dung namespace 
+kubectl get pods --namespace=ingress-nginx
+
+-- Get những service su dung namespace 
+kubectl get services --namespace=ingress-nginx
+
