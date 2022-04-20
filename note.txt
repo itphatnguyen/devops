@@ -78,3 +78,12 @@ kubectl get pods --namespace=ingress-nginx
 -- Get những service su dung namespace 
 kubectl get services --namespace=ingress-nginx
 
+-- Persistent Volume(PV)    VS   Persistent Volume Claim(PVC)
+
+
+
+-- Create secret key to lưu tru password SA sql, để gọi lại từ những nơi khác
+kubectl create secret generic mssql --from-literal=SA_PASSWORD="P@ssW0rd"
+
+-- Get Data of secret key 
+kubectl describe secret mssql 
