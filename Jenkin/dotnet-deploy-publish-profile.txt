@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Cloning') {
+            steps {
+                git branch: '${BRANCH}', credentialsId:'5e4e917e-be20-419e-8eed-a23d8845a1dd', url:'git@bitbucket.org:itphatnguyen/esuntrackerdotnet2.2.git'
+            }
+        }
+        stage('Restore Package') {
+            steps {
+                bat 'dotnet restore .\\EsunTracker\\EsunTracker.csproj'
+            }
+        }
+        stage('Clean Package') {
+            steps {
+                bat 'dotnet clean .\\EsunTracker\\EsunTracker.csproj'
+            }
+        }
+        stage('Build') {
+            steps {
+                bat 'dotnet build .\\EsunTracker\\EsunTracker.csproj -c Release'
+            }
+        }
+        stage('Artifacts') {
+            steps {
+                archiveArtifacts artifacts: 'EsunTracker\\bin\\Release\\netcoreapp2.2\\publish\\**', followSymlinks: false
+            }
+        }
+    }
+}
